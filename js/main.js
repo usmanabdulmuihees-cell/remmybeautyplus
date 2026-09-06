@@ -17,8 +17,7 @@ window.REMMY_SERVICES = [
 try{const managed=JSON.parse(localStorage.getItem('remmy_services'));if(Array.isArray(managed))window.REMMY_SERVICES=managed}catch(error){console.warn('Could not load managed services.',error)}
 
 document.addEventListener('DOMContentLoaded',()=>{
-  // Replace this placeholder with the real WhatsApp number, including country code and digits only.
-  const WHATSAPP_NUMBER='15551234567';
+  const WHATSAPP_NUMBER='12404864423';
   const whatsappMessage=encodeURIComponent('Hi Remmybeautyplus, I would like to ask about booking an appointment.');
   document.body.insertAdjacentHTML('beforeend',`<a class="whatsapp-chat" href="https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}" target="_blank" rel="noopener noreferrer" aria-label="Chat with Remmybeautyplus on WhatsApp"><span class="whatsapp-tooltip">Chat with us</span><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.34 4 14.9c0 2.3.67 4.54 1.93 6.45L4 28.38l7.24-1.88a12.1 12.1 0 0 0 4.8.99h.01C22.69 27.49 28 22.15 28 15.58 28 8.99 22.68 3 16.04 3Zm0 22.48a10.1 10.1 0 0 1-4.35-.96l-.31-.15-4.3 1.12 1.15-4.14-.2-.33a9.83 9.83 0 0 1-1.52-5.25c0-5.45 4.47-9.88 9.97-9.88 5.49 0 9.95 4.43 9.95 9.88 0 5.45-4.46 9.71-9.94 9.71Zm5.47-7.39c-.3-.15-1.77-.86-2.04-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.14-1.26-.46-2.39-1.46a8.9 8.9 0 0 1-1.66-2.04c-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.49.1-.2.05-.37-.03-.52-.07-.15-.66-1.6-.91-2.18-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1-1.04 2.45s1.07 2.85 1.22 3.04c.15.2 2.1 3.17 5.08 4.45.71.3 1.26.49 1.7.63.71.22 1.35.19 1.86.12.57-.09 1.77-.72 2.02-1.41.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.34Z"/></svg></a>`);
   const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.site-header nav');
