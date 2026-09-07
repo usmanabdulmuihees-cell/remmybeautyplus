@@ -14,7 +14,7 @@ window.REMMY_SERVICES = [
   {id:'blend-wigs',name:'Blend Wigs',price:180,regularPrice:180,salePrice:100,saleActive:true,saleStartDate:'',saleEndDate:'',duration:2.5,image:'images/bohemian-braids.webp',description:'Customized blended wig styling for a polished, natural-looking finish.'}
 ];
 // Admin-managed services override the built-in starter list.
-try{const managed=JSON.parse(localStorage.getItem('remmy_services'));if(Array.isArray(managed))window.REMMY_SERVICES=managed.map(service=>service.id==='blend-wigs'&&typeof service.saleActive!=='boolean'?{...service,regularPrice:Number(service.price??180),salePrice:100,saleActive:true,saleStartDate:'',saleEndDate:''}:service)}catch(error){console.warn('Could not load managed services.',error)}
+try{let managed=JSON.parse(localStorage.getItem('remmy_services'));if(Array.isArray(managed)){const saleVersion='blend-wigs-100-v1';if(localStorage.getItem('remmy_sale_version')!==saleVersion){managed=managed.map(service=>({...service,regularPrice:Number(service.regularPrice??service.price??0),saleActive:service.id==='blend-wigs',salePrice:service.id==='blend-wigs'?100:service.salePrice??null,saleStartDate:service.id==='blend-wigs'?'':service.saleStartDate||'',saleEndDate:service.id==='blend-wigs'?'':service.saleEndDate||''}));localStorage.setItem('remmy_services',JSON.stringify(managed));localStorage.setItem('remmy_sale_version',saleVersion)}window.REMMY_SERVICES=managed}}catch(error){console.warn('Could not load managed services.',error)}
 
 document.addEventListener('DOMContentLoaded',()=>{
   const WHATSAPP_NUMBER='12404864423';
